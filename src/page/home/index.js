@@ -1,16 +1,20 @@
-import React from 'react';
-import { StyleSheet, Text, View,Button } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import React from 'react'
+import {View, Text, StyleSheet, Button} from 'react-native'
 
-export default function Home() {
-  const navigation = useNavigation()
-  return (
-    <View style={styles.container}>
-      <Text>Tela home</Text>
-      <Button title='Ir para sobre' onPress={() => navigation.navigate('Sobre')}/>
+import { useNavigation } from '@react-navigation/native'
 
-    </View>
-  );
+export default function Home(){
+
+    const navigation = useNavigation();
+    function navegaSobre(){
+        navigation.navigate('Sobre', {nome: 'Pedro', email: 'Pedro@Pedro.com'})
+    }
+    return(
+        <View style={styles.container}>
+            <Text>Home</Text>
+            <Button title="Sobre" onPress={() => navegaSobre()}/>
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
